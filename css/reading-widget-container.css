@@ -1,0 +1,39 @@
+.widget-row {
+  display: flex;
+  flex-direction: row-reverse; /* ❗ هذا يعكس الترتيب */
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.reading-widget-container {
+  gap: 0px;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    font-family: 'Inter', sans-serif; 
+  border-radius: 12px;
+  padding: 30px 20px;
+  width: 68%;
+}
+.reading-text{
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 18px;
+  backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-bottom: 2px solid white;
+    box-shadow: var(--glass-shadow);
+
+}
+.reading-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+color: var(--text-primary);
+}
+.reading-content {
+  font-size: 18px;
+  color: #131212;
+  line-height: 1.5;
+}

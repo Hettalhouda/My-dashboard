@@ -1,0 +1,48 @@
+.daily-hats-widget {
+  gap: 20px;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 12px;
+  padding: 16px;
+  width: 68%;
+  margin-top: 0;
+}
+
+.hats-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.hats-list {
+  list-style: none;
+  padding: 0;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* مسافة بين المهام */
+}
+
+.hats-list li {
+font-size: 18px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffffcc; /* خلفية خفيفة */
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.hats-list li:hover {
+  background-color: #f0f0f0;
+}
+
+.hats-list input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}

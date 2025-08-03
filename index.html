@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal dashboard with calendar, tasks and daily information">
+    <title>MyDashboard</title>
+    <!-- هذا هو السطر الذي يربط ملف CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/top_bar.css">
+    <link rel="stylesheet" href="css/date_widget_container.css">
+    <link rel="stylesheet" href="css/todo_widget_container.css"> 
+    <link rel="stylesheet" href="css/reading-widget-container.css">
+    <link rel="stylesheet" href="css/daily-hats-widget.css">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <!-- External Resources -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600&display=swap">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation" aria-hidden="true">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+    </div>
+
+    <nav class="Sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <div class="logo_name">MyDashboard</div>
+            </div>
+            <button class="bx bx-menu" id="btn" aria-label="Toggle menu"></button>
+        </div>
+        <ul class="nav_list">
+            <li>
+                <label class="sr-only" for="search">Search</label>
+                <i class="bx bx-search"></i>
+                <input type="text" id="search" placeholder="Search...">
+            </li>
+            <li>
+                <a href="#dashboard" aria-label="Dashboard">
+                    <i class='bxr bx-dashboard'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#user" aria-label="User profile" style="pointer-events: none; cursor: default;">
+                    <i class="bx bx-user" style="color: gray;"></i>
+                    <span class="link_name" style="color: gray;">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="#messages" aria-label="Messages" style="pointer-events: none; cursor: default;">
+                    <i class='bxr bx-message-dots' style="color: gray;"></i>
+                    <span class="link_name" style="color: gray;">Message</span>
+                </a>
+                <span class="tooltip">Message</span>
+            </li>
+            <li>
+                <a href="#analytics" aria-label="Analytics" style="pointer-events: none; cursor: default;">
+                    <i class='bxr bxs-analyze' style="color: gray;"></i>
+                    <span class="link_name" style="color: gray;">Analytics</span>
+                </a>
+                <span class="tooltip">Analytics</span>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="home_content">
+        <header class="top-bar" id="greeting">
+            Welcome back, Houda 
+        </header>
+
+        <div class="widget-row">
+            <section class="date-widget-container">
+                <div class="mini-calendar">
+                    <div class="calendar-nav">
+                        <button id="prev-month" class="nav-btn" aria-label="Previous month">‹</button>
+                        <div id="calendar-header" role="heading" aria-level="2"></div>
+                        <button id="next-month" class="nav-btn" aria-label="Next month">›</button>
+                    </div>
+                    <div id="calendar-days" role="grid"></div>
+                </div>
+                <div class="today-date" id="today-date" role="status"></div>
+                <div class="current-time" id="current-time" role="timer"></div>
+            </section>
+
+            <section class="reading-widget-container">
+                <div class="reading-text">
+                    <h3 class="reading-title">📖 Quick Information</h3>
+                    <p id="readingContent" class="reading-content"></p>
+                </div>
+                <div class="reading-text">
+                    <h3 class="reading-title">📅 Historical Event</h3>
+                    <p id="historyContent" class="reading-content">Loading...</p>
+                </div>
+                <div class="reading-text">
+                    <h3 class="reading-title">💡 Technical Information</h3>
+                    <p id="techFactContent" class="reading-content">Loading...</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="widget-row">
+            <section class="todo-widget-container">
+                <h3 class="todo-title">To-Do List</h3>
+                <div class="add-task-section">
+                    <label class="sr-only" for="taskInput">Add new task</label>
+                    <input type="text" id="taskInput" placeholder="✨ Add a new task ..." maxlength="100">
+                    <button id="addTaskBtn" aria-label="Add task">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <ul id="taskList" role="list"></ul>
+            </section>
+
+            <section class="daily-hats-widget">
+                <div class="flex justify-between items-center">
+                    <h3 class="hats-title">🧢 Daily Hats</h3>
+                    <span id="completedCount" class="text-base text-secondary">0/5 Done</span>
+                </div>
+                <ul class="hats-list">
+                    <li><label><input type="checkbox" data-id="0" aria-label="Complete morning stretch"> Morning stretch</label></li>
+                    <li><label><input type="checkbox" data-id="1" aria-label="Complete drinking water"> Drink water</label></li>
+                    <li><label><input type="checkbox" data-id="2" aria-label="Complete reading 10 pages"> Read 10 pages</label></li>
+                    <li><label><input type="checkbox" data-id="3" aria-label="Complete writing journal"> Write journal</label></li>
+                    <li><label><input type="checkbox" data-id="4" aria-label="Complete going for a walk"> Go for a walk</label></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+        
+
+    
+        <script src="js/script.js"> </script>
+         <script src="js/script_top_bar.js" defer> </script>
+         <script src="js/script_reading-widget-container.js" defer> </script>
+        <script src="js/script_date_widget_container.js"></script>
+        <script src="js/script_todo_widget_container.js"> </script>
+        <script src="js/script_daily-hats-widget.js"> </script>
+
+
+</body>
+</html>

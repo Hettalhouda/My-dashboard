@@ -1,0 +1,12 @@
+.top-bar {
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    font-family: 'Inter', sans-serif; color: var(--text-primary);
+    width: 100%;
+    top:0;
+     font-weight: 600;
+    padding: 14px 20px;
+    font-size: 18px;
+
+}
